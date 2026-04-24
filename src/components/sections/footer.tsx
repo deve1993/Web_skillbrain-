@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { Logo } from "@/components/layout/logo";
 
 export function Footer() {
   const t = useTranslations("sections.footer");
@@ -10,9 +11,10 @@ export function Footer() {
         <div className="md:col-span-2">
           <Link
             href="/"
-            className="font-display text-2xl tracking-tight hover:opacity-80 transition-opacity"
+            className="inline-block hover:opacity-80 transition-opacity"
+            aria-label="SkillBrain — home"
           >
-            SkillBrain
+            <Logo />
           </Link>
           <p className="mt-4 text-sm text-muted max-w-xs leading-relaxed">
             {t("tagline")}

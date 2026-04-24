@@ -93,6 +93,118 @@ body {
   line-height: 0.95;
 }
 
+/* Animated gradient mesh — slow, ambient */
+@keyframes mesh-drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-3%, -2%, 0) scale(1.05);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+.mesh-bg-animated {
+  background-image:
+    radial-gradient(at 20% 10%, color-mix(in oklch, var(--color-accent) 35%, transparent) 0px, transparent 55%),
+    radial-gradient(at 85% 0%, color-mix(in oklch, var(--color-cyan) 25%, transparent) 0px, transparent 50%),
+    radial-gradient(at 50% 90%, color-mix(in oklch, var(--color-accent-soft) 20%, transparent) 0px, transparent 55%);
+  animation: mesh-drift 18s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Lens flare sweep */
+@keyframes lens-sweep {
+  0% {
+    transform: translateX(-110%) rotate(-12deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(110%) rotate(-12deg);
+    opacity: 0;
+  }
+}
+
+.lens-flare {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in oklch, var(--color-accent) 30%, transparent) 30%,
+    color-mix(in oklch, var(--color-foreground) 60%, transparent) 50%,
+    color-mix(in oklch, var(--color-cyan) 30%, transparent) 70%,
+    transparent 100%
+  );
+  filter: blur(40px);
+  animation: lens-sweep 9s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Pulse glow — for nodes, badges, dots */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 color-mix(in oklch, var(--color-accent) 50%, transparent);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 0 12px color-mix(in oklch, var(--color-accent) 0%, transparent);
+    transform: scale(1.05);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2.4s ease-in-out infinite;
+}
+
+/* Orbital animation for graph nodes */
+@keyframes orbit-slow {
+  from {
+    transform: rotate(0deg) translateX(0) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(0) rotate(-360deg);
+  }
+}
+
+@keyframes float-y {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.float-slow {
+  animation: float-y 6s ease-in-out infinite;
+}
+
+/* Glow line — for active flow connections */
+@keyframes glow-line {
+  0%, 100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.glow-line {
+  animation: glow-line 3s ease-in-out infinite;
+}
+
 /* Reduce motion */
 @media (prefers-reduced-motion: reduce) {
   *,

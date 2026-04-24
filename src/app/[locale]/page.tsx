@@ -25,7 +25,7 @@ export default async function HomePage({ params }: { params: Params }) {
   return (
     <>
       <Nav />
-      <main>
+      <main id="main">
         <Hero />
         <Shift />
         <Pillars />

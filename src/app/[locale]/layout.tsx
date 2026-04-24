@@ -4,6 +4,8 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
+import { LenisProvider } from "@/components/motion/lenis-provider";
+import { SkipLink } from "@/components/layout/skip-link";
 import "../globals.css";
 
 const geistSans = Geist({
@@ -93,7 +95,11 @@ export default async function LocaleLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable}`}
     >
       <body className="min-h-screen bg-background text-foreground">
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider>
+          <SkipLink />
+          <LenisProvider />
+          {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   );
