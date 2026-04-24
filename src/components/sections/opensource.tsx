@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
+import { TypingCode } from "@/components/motion/typing-code";
 
 const tabs = [
   {
@@ -98,9 +99,24 @@ export function OpenSource() {
           <div className="px-4 py-2 border-b border-border font-mono text-xs text-subtle">
             {current.path}
           </div>
-          <pre className="p-6 font-mono text-sm text-foreground overflow-x-auto leading-relaxed">
-            <code>{current.code}</code>
-          </pre>
+          <TypingCode
+            key={current.id}
+            code={current.code}
+            speed={120}
+            className="p-6"
+          />
+          <div className="border-t border-border px-4 py-2 flex items-center justify-between">
+            <span className="font-mono text-[10px] uppercase tracking-wider text-subtle">
+              MIT License · Apache-2.0 dual
+            </span>
+            <button
+              type="button"
+              onClick={() => navigator.clipboard?.writeText(current.code)}
+              className="font-mono text-[10px] uppercase tracking-wider text-muted hover:text-foreground transition-colors"
+            >
+              Copy
+            </button>
+          </div>
         </div>
       </div>
     </section>
