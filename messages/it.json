@@ -1,0 +1,161 @@
+{
+  "metadata": {
+    "title": "SkillBrain — Memoria persistente per team che programmano con l'AI",
+    "description": "Open source. MCP-native. IDE-agnostic. La tua AI non dimentica più nulla, e tutto il team lavora con le stesse convenzioni.",
+    "ogAlt": "SkillBrain — Persistent memory for AI coding teams"
+  },
+  "common": {
+    "nav": {
+      "pillars": "Cosa fa",
+      "flow": "Come funziona",
+      "future": "Roadmap",
+      "opensource": "Open source",
+      "call": "Parla con noi"
+    },
+    "cta": {
+      "primary": "Vedi come →",
+      "github": "⭐ Star su GitHub",
+      "earlyAccess": "Richiedi accesso early →",
+      "bookCall": "Prenota una call →"
+    },
+    "languageSwitcher": {
+      "label": "Lingua",
+      "it": "Italiano",
+      "en": "English",
+      "cs": "Čeština"
+    }
+  },
+  "sections": {
+    "hero": {
+      "eyebrow": "Per team che programmano con l'AI",
+      "headline": "L'AI dimentica.\nIl tuo team paga il conto.",
+      "sub": "Ogni giorno ri-spieghi a Claude, a Cursor, a Copilot le stesse cose. Convenzioni, decisioni, vincoli. Quello che hai costruito ieri scompare oggi."
+    },
+    "shift": {
+      "eyebrow": "E se ricordasse tutto?",
+      "headline": "SkillBrain",
+      "tagline": "Memoria persistente e skill condivise per team che programmano con l'AI."
+    },
+    "pillars": {
+      "title": "Tre cervelli, un workspace",
+      "subtitle": "Una memoria collettiva che cresce con il tuo team — e va dove vai tu.",
+      "memory": {
+        "title": "Memoria",
+        "body": "Decisioni, bugfix, pattern, anti-pattern. Salvati una volta, richiamati sempre. Niente più contesto perso tra una sessione e l'altra."
+      },
+      "skills": {
+        "title": "Skill",
+        "body": "253 skill curate condivise tra tutto il team. Da Next.js a Stripe, da SEO a Postgres. La tua AI lavora con il know-how dei tuoi senior."
+      },
+      "multiuser": {
+        "title": "Multi-user",
+        "body": "Tutti i tuoi sviluppatori vedono lo stesso cervello in tempo reale. Le convenzioni di progetto si applicano da sole."
+      }
+    },
+    "flow": {
+      "eyebrow": "Vedilo lavorare",
+      "title": "Una sola query. Tutto il sapere del team.",
+      "body": "Tu chiedi. SkillBrain richiama la memoria, carica la skill giusta, esegue. Poi salva quello che ha imparato. Per la prossima volta. Per chiunque."
+    },
+    "graph": {
+      "eyebrow": "Il tuo codebase, vivo",
+      "title": "Il tuo codebase come una mappa",
+      "body": "CodeGraph indicizza ogni funzione, ogni dipendenza, ogni impatto. Prima di rinominare una classe sai esattamente cosa rompi. Niente più refactor al buio."
+    },
+    "team": {
+      "eyebrow": "Lo stesso cervello, ovunque",
+      "title": "Tutto il team condivide la stessa mente",
+      "body": "Team API keys, ruoli, scoping. Un singolo MCP server alimenta VS Code, Cursor, Claude Code, Codex. Il tuo dev a Praga e il tuo dev a Milano partono dallo stesso contesto."
+    },
+    "future": {
+      "eyebrow": "Roadmap",
+      "title": "Evoluzione agentica",
+      "body": "Presto: agenti autonomi che si scrivono le skill da soli. Integrazioni live. Un marketplace di cervelli specializzati per dominio."
+    },
+    "proof": {
+      "eyebrow": "Reale, oggi",
+      "title": "Numeri veri. Codice in produzione.",
+      "stats": {
+        "memories": "Memorie attive",
+        "skills": "Skill condivise",
+        "sessions": "Sessioni accumulate"
+      },
+      "caseStudy": "Pixarts ha costruito 12 siti client in 6 mesi senza ri-spiegare niente all'AI. SkillBrain è in produzione, oggi.",
+      "trustedBy": "Usato da"
+    },
+    "opensource": {
+      "eyebrow": "Open source",
+      "title": "Self-host in 5 minuti",
+      "body": "Codice MIT su GitHub. Funziona con Claude Code, Cursor, Codex. Zero lock-in. Configura una volta, usa ovunque.",
+      "tabs": {
+        "claudeCode": "Claude Code",
+        "cursor": "Cursor",
+        "codex": "Codex"
+      }
+    },
+    "call": {
+      "eyebrow": "Done-for-you",
+      "title": "Oppure lo configuriamo noi per te",
+      "body": "Installiamo SkillBrain nel flusso del tuo team, addestriamo il cervello sul vostro codebase e tuniamo per due settimane. Voi vedete i risultati dal giorno uno.",
+      "bullets": [
+        "Setup completo in 2 settimane",
+        "Skill custom per le vostre convenzioni",
+        "Training del team incluso"
+      ],
+      "trust": "Costruito e usato in produzione da Pixarts."
+    },
+    "footer": {
+      "tagline": "Memoria persistente per team che programmano con l'AI.",
+      "links": {
+        "github": "GitHub",
+        "docs": "Docs",
+        "email": "Email",
+        "privacy": "Privacy",
+        "cookies": "Cookies"
+      },
+      "madeIn": "Made in Italy",
+      "license": "MIT License"
+    }
+  },
+  "form": {
+    "name": "Nome",
+    "namePlaceholder": "Mario Rossi",
+    "email": "Email di lavoro",
+    "emailPlaceholder": "mario@azienda.com",
+    "company": "Azienda",
+    "companyPlaceholder": "La tua azienda",
+    "teamSize": "Dimensione team",
+    "teamSizes": {
+      "solo": "Solo (1)",
+      "small": "2–10",
+      "medium": "11–30",
+      "large": "30+"
+    },
+    "message": "Cosa vuoi ottenere?",
+    "messagePlaceholder": "Raccontaci il tuo flusso di lavoro AI attuale e dove vorresti arrivare.",
+    "earlyAccess": "Mi interessa l'early access al cloud gestito",
+    "submit": "Invia richiesta",
+    "submitting": "Invio in corso…",
+    "successTitle": "Ricevuto.",
+    "successBody": "Ti rispondiamo entro 24 ore lavorative direttamente da Daniel.",
+    "errorTitle": "Qualcosa è andato storto.",
+    "errorBody": "Riprova tra qualche istante o scrivici direttamente a daniel@pixarts.eu.",
+    "validation": {
+      "nameRequired": "Inserisci il tuo nome",
+      "emailInvalid": "Email non valida",
+      "messageMin": "Scrivi almeno 10 caratteri"
+    }
+  },
+  "legal": {
+    "privacy": {
+      "title": "Privacy Policy",
+      "lastUpdated": "Ultimo aggiornamento",
+      "intro": "Pixarts S.r.l., titolare del trattamento, descrive di seguito come tratta i dati personali raccolti tramite questo sito."
+    },
+    "cookies": {
+      "title": "Cookie Policy",
+      "lastUpdated": "Ultimo aggiornamento",
+      "intro": "Questo sito utilizza solo cookie tecnici essenziali e analytics privacy-first (Plausible, senza cookie). Nessun cookie di profilazione."
+    }
+  }
+}

@@ -1,0 +1,161 @@
+{
+  "metadata": {
+    "title": "SkillBrain — Trvalá paměť pro týmy programující s AI",
+    "description": "Open source. MCP-native. IDE-agnostic. Vaše AI už nikdy nic nezapomene a celý tým pracuje se stejnými konvencemi.",
+    "ogAlt": "SkillBrain — Persistent memory for AI coding teams"
+  },
+  "common": {
+    "nav": {
+      "pillars": "Co umí",
+      "flow": "Jak to funguje",
+      "future": "Roadmap",
+      "opensource": "Open source",
+      "call": "Spojte se s námi"
+    },
+    "cta": {
+      "primary": "Ukaž mi to →",
+      "github": "⭐ Hvězda na GitHubu",
+      "earlyAccess": "Získat předběžný přístup →",
+      "bookCall": "Rezervovat hovor →"
+    },
+    "languageSwitcher": {
+      "label": "Jazyk",
+      "it": "Italiano",
+      "en": "English",
+      "cs": "Čeština"
+    }
+  },
+  "sections": {
+    "hero": {
+      "eyebrow": "Pro týmy programující s AI",
+      "headline": "AI zapomíná.\nÚčet platí váš tým.",
+      "sub": "Každý den znovu vysvětlujete Claude, Cursoru, Copilotu totéž. Konvence, rozhodnutí, omezení. Co jste postavili včera, je dnes pryč."
+    },
+    "shift": {
+      "eyebrow": "Co kdyby si pamatovala všechno?",
+      "headline": "SkillBrain",
+      "tagline": "Trvalá paměť a sdílené dovednosti pro týmy programující s AI."
+    },
+    "pillars": {
+      "title": "Tři mozky, jeden workspace",
+      "subtitle": "Kolektivní paměť, která roste s vaším týmem — a jde všude s vámi.",
+      "memory": {
+        "title": "Paměť",
+        "body": "Rozhodnutí, opravy chyb, vzory, anti-vzory. Uložené jednou, vyvolané vždy. Už žádný ztracený kontext mezi sezeními."
+      },
+      "skills": {
+        "title": "Dovednosti",
+        "body": "253 kurátorovaných dovedností sdílených celým týmem. Od Next.js po Stripe, od SEO po Postgres. Vaše AI pracuje se znalostmi vašich seniorů."
+      },
+      "multiuser": {
+        "title": "Multi-user",
+        "body": "Všichni vaši vývojáři vidí stejný mozek v reálném čase. Konvence projektu se aplikují samy."
+      }
+    },
+    "flow": {
+      "eyebrow": "Podívejte se, jak pracuje",
+      "title": "Jeden dotaz. Veškeré znalosti týmu.",
+      "body": "Zeptáte se. SkillBrain si vybaví paměť, načte správnou dovednost, provede. Pak uloží, co se naučil. Pro příště. Pro kohokoliv."
+    },
+    "graph": {
+      "eyebrow": "Váš codebase, živý",
+      "title": "Váš codebase jako živá mapa",
+      "body": "CodeGraph indexuje každou funkci, každou závislost, každý dopad. Před přejmenováním třídy přesně víte, co se rozbije. Už žádný refactor naslepo."
+    },
+    "team": {
+      "eyebrow": "Stejný mozek, všude",
+      "title": "Celý tým sdílí stejnou mysl",
+      "body": "Týmové API klíče, role, rozsah. Jediný MCP server pohání VS Code, Cursor, Claude Code, Codex. Váš vývojář v Praze a váš vývojář v Miláně vycházejí ze stejného kontextu."
+    },
+    "future": {
+      "eyebrow": "Roadmap",
+      "title": "Agentní evoluce",
+      "body": "Brzy: autonomní agenti, kteří si sami píší dovednosti. Živé integrace. Marketplace mozků specializovaných na domény."
+    },
+    "proof": {
+      "eyebrow": "Reálné, dnes",
+      "title": "Skutečná čísla. Produkční kód.",
+      "stats": {
+        "memories": "Aktivní vzpomínky",
+        "skills": "Sdílené dovednosti",
+        "sessions": "Zaznamenané sezení"
+      },
+      "caseStudy": "Pixarts postavil 12 klientských webů za 6 měsíců, aniž by AI musel cokoli znovu vysvětlovat. SkillBrain je dnes v produkci.",
+      "trustedBy": "Důvěřují nám"
+    },
+    "opensource": {
+      "eyebrow": "Open source",
+      "title": "Self-host za 5 minut",
+      "body": "MIT licence na GitHubu. Funguje s Claude Code, Cursorem, Codexem. Žádný lock-in. Nastavíte jednou, používáte všude.",
+      "tabs": {
+        "claudeCode": "Claude Code",
+        "cursor": "Cursor",
+        "codex": "Codex"
+      }
+    },
+    "call": {
+      "eyebrow": "Done-for-you",
+      "title": "Nebo vám to nastavíme my",
+      "body": "Nainstalujeme SkillBrain do workflow vašeho týmu, natrénujeme mozek na vašem codebase a dva týdny ho ladíme. Výsledky uvidíte od prvního dne.",
+      "bullets": [
+        "Kompletní nastavení za 2 týdny",
+        "Custom dovednosti pro vaše konvence",
+        "Školení týmu v ceně"
+      ],
+      "trust": "Postaveno a v produkci používáno agenturou Pixarts."
+    },
+    "footer": {
+      "tagline": "Trvalá paměť pro týmy programující s AI.",
+      "links": {
+        "github": "GitHub",
+        "docs": "Dokumentace",
+        "email": "Email",
+        "privacy": "Soukromí",
+        "cookies": "Cookies"
+      },
+      "madeIn": "Made in Italy",
+      "license": "MIT License"
+    }
+  },
+  "form": {
+    "name": "Jméno",
+    "namePlaceholder": "Jan Novák",
+    "email": "Pracovní email",
+    "emailPlaceholder": "jan@firma.cz",
+    "company": "Firma",
+    "companyPlaceholder": "Vaše firma",
+    "teamSize": "Velikost týmu",
+    "teamSizes": {
+      "solo": "Sám (1)",
+      "small": "2–10",
+      "medium": "11–30",
+      "large": "30+"
+    },
+    "message": "Čeho chcete dosáhnout?",
+    "messagePlaceholder": "Řekněte nám o svém současném AI workflow a kam se chcete dostat.",
+    "earlyAccess": "Mám zájem o předběžný přístup ke spravovanému cloudu",
+    "submit": "Odeslat žádost",
+    "submitting": "Odesílám…",
+    "successTitle": "Máme to.",
+    "successBody": "Odpovíme do 24 pracovních hodin přímo od Daniela.",
+    "errorTitle": "Něco se pokazilo.",
+    "errorBody": "Zkuste to prosím za chvíli znovu, nebo nám napište přímo na daniel@pixarts.eu.",
+    "validation": {
+      "nameRequired": "Zadejte prosím své jméno",
+      "emailInvalid": "Neplatná emailová adresa",
+      "messageMin": "Napište prosím alespoň 10 znaků"
+    }
+  },
+  "legal": {
+    "privacy": {
+      "title": "Zásady ochrany osobních údajů",
+      "lastUpdated": "Poslední aktualizace",
+      "intro": "Pixarts S.r.l., správce údajů, níže popisuje, jak zpracovává osobní údaje shromážděné prostřednictvím tohoto webu."
+    },
+    "cookies": {
+      "title": "Zásady cookies",
+      "lastUpdated": "Poslední aktualizace",
+      "intro": "Tento web používá pouze nezbytné technické cookies a privacy-first analytiku (Plausible, bez cookies). Žádné profilovací cookies."
+    }
+  }
+}

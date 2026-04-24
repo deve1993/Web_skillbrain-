@@ -1,0 +1,161 @@
+{
+  "metadata": {
+    "title": "SkillBrain — Persistent memory for AI coding teams",
+    "description": "Open source. MCP-native. IDE-agnostic. Your AI never forgets, and your team writes with one shared mind.",
+    "ogAlt": "SkillBrain — Persistent memory for AI coding teams"
+  },
+  "common": {
+    "nav": {
+      "pillars": "What it does",
+      "flow": "How it works",
+      "future": "Roadmap",
+      "opensource": "Open source",
+      "call": "Talk to us"
+    },
+    "cta": {
+      "primary": "See how →",
+      "github": "⭐ Star on GitHub",
+      "earlyAccess": "Get early access →",
+      "bookCall": "Book a call →"
+    },
+    "languageSwitcher": {
+      "label": "Language",
+      "it": "Italiano",
+      "en": "English",
+      "cs": "Čeština"
+    }
+  },
+  "sections": {
+    "hero": {
+      "eyebrow": "For teams that code with AI",
+      "headline": "Your AI forgets.\nYour team pays the bill.",
+      "sub": "Every day you re-explain the same things to Claude, Cursor, Copilot. Conventions, decisions, constraints. What you built yesterday is gone today."
+    },
+    "shift": {
+      "eyebrow": "What if it remembered everything?",
+      "headline": "SkillBrain",
+      "tagline": "Persistent memory and shared skills for AI coding teams."
+    },
+    "pillars": {
+      "title": "Three brains, one workspace",
+      "subtitle": "A collective memory that grows with your team — and follows you everywhere.",
+      "memory": {
+        "title": "Memory",
+        "body": "Decisions, bugfixes, patterns, anti-patterns. Saved once, recalled always. No more context lost between sessions."
+      },
+      "skills": {
+        "title": "Skills",
+        "body": "253 curated skills shared across the whole team. From Next.js to Stripe, from SEO to Postgres. Your AI works with your seniors' know-how."
+      },
+      "multiuser": {
+        "title": "Multi-user",
+        "body": "All your developers see the same brain in real time. Project conventions apply themselves."
+      }
+    },
+    "flow": {
+      "eyebrow": "See it work",
+      "title": "One query. The whole team's knowledge.",
+      "body": "You ask. SkillBrain recalls the memory, loads the right skill, executes. Then it saves what it learned. For next time. For anyone."
+    },
+    "graph": {
+      "eyebrow": "Your codebase, alive",
+      "title": "Your codebase as a living map",
+      "body": "CodeGraph indexes every function, every dependency, every impact. Before renaming a class you know exactly what breaks. No more refactor in the dark."
+    },
+    "team": {
+      "eyebrow": "The same brain, everywhere",
+      "title": "Your whole team shares the same mind",
+      "body": "Team API keys, roles, scoping. A single MCP server powers VS Code, Cursor, Claude Code, Codex. Your dev in Prague and your dev in Milan start from the same context."
+    },
+    "future": {
+      "eyebrow": "Roadmap",
+      "title": "Agentic evolution",
+      "body": "Soon: autonomous agents writing skills for themselves. Live integrations. A marketplace of domain-specialized brains."
+    },
+    "proof": {
+      "eyebrow": "Real, today",
+      "title": "Real numbers. Production code.",
+      "stats": {
+        "memories": "Active memories",
+        "skills": "Shared skills",
+        "sessions": "Sessions tracked"
+      },
+      "caseStudy": "Pixarts built 12 client websites in 6 months without re-explaining anything to the AI. SkillBrain is in production, today.",
+      "trustedBy": "Trusted by"
+    },
+    "opensource": {
+      "eyebrow": "Open source",
+      "title": "Self-host in 5 minutes",
+      "body": "MIT-licensed on GitHub. Works with Claude Code, Cursor, Codex. Zero lock-in. Configure once, use everywhere.",
+      "tabs": {
+        "claudeCode": "Claude Code",
+        "cursor": "Cursor",
+        "codex": "Codex"
+      }
+    },
+    "call": {
+      "eyebrow": "Done-for-you",
+      "title": "Or let us set it up for you",
+      "body": "We install SkillBrain in your team's workflow, train the brain on your codebase, and tune it for two weeks. You see results from day one.",
+      "bullets": [
+        "Full setup in 2 weeks",
+        "Custom skills for your conventions",
+        "Team training included"
+      ],
+      "trust": "Built and used in production by Pixarts."
+    },
+    "footer": {
+      "tagline": "Persistent memory for AI coding teams.",
+      "links": {
+        "github": "GitHub",
+        "docs": "Docs",
+        "email": "Email",
+        "privacy": "Privacy",
+        "cookies": "Cookies"
+      },
+      "madeIn": "Made in Italy",
+      "license": "MIT License"
+    }
+  },
+  "form": {
+    "name": "Name",
+    "namePlaceholder": "Jane Doe",
+    "email": "Work email",
+    "emailPlaceholder": "jane@company.com",
+    "company": "Company",
+    "companyPlaceholder": "Your company",
+    "teamSize": "Team size",
+    "teamSizes": {
+      "solo": "Solo (1)",
+      "small": "2–10",
+      "medium": "11–30",
+      "large": "30+"
+    },
+    "message": "What do you want to achieve?",
+    "messagePlaceholder": "Tell us about your current AI workflow and where you want to go.",
+    "earlyAccess": "I'm interested in early access to managed cloud",
+    "submit": "Send request",
+    "submitting": "Sending…",
+    "successTitle": "Got it.",
+    "successBody": "We'll reply within 24 business hours, directly from Daniel.",
+    "errorTitle": "Something went wrong.",
+    "errorBody": "Please try again in a moment, or write us directly at daniel@pixarts.eu.",
+    "validation": {
+      "nameRequired": "Please enter your name",
+      "emailInvalid": "Invalid email address",
+      "messageMin": "Please write at least 10 characters"
+    }
+  },
+  "legal": {
+    "privacy": {
+      "title": "Privacy Policy",
+      "lastUpdated": "Last updated",
+      "intro": "Pixarts S.r.l., data controller, describes below how it processes personal data collected through this site."
+    },
+    "cookies": {
+      "title": "Cookie Policy",
+      "lastUpdated": "Last updated",
+      "intro": "This site uses only essential technical cookies and privacy-first analytics (Plausible, no cookies). No profiling cookies."
+    }
+  }
+}
