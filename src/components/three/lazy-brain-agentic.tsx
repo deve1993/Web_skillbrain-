@@ -36,12 +36,12 @@ export function LazyBrainAgentic() {
     <div ref={ref} className="w-full h-full">
       {shouldMount ? (
         <Canvas
-          camera={{ position: [0, 0, 4], fov: 45 }}
+          camera={{ position: [0, 0, 3.2], fov: 50 }}
           gl={{ antialias: true, alpha: true }}
           dpr={[1, 1.5]}
         >
           <BrainScene
-            scale={0.5}
+            scale={1.0}
             autoRotate={false}
             showPulses={false}
             showPostProcessing={false}

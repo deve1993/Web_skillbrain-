@@ -1,7 +1,5 @@
 import { Reveal } from "@/components/motion/reveal";
-import { KnowledgeGraph } from "@/components/motion/knowledge-graph";
-import { SkillsCloud } from "@/components/motion/skills-cloud";
-import { MultiUserSync } from "@/components/motion/multiuser-sync";
+import { VideoBg } from "@/components/motion/video-bg";
 import { getStats } from "@/lib/stats";
 
 export async function Pillars() {
@@ -30,33 +28,21 @@ export async function Pillars() {
             title={t("memory.title")}
             body={t("memory.body")}
             stat={`${stats.memories} active`}
-            visual={
-              <div className="absolute inset-0 flex items-center justify-center p-4 z-10">
-                <KnowledgeGraph memoryCount={stats.memories} />
-              </div>
-            }
+            videoSrc="/videos/03-memory.mp4"
           />
           <PillarCard
             index={1}
             title={t("skills.title")}
             body={t("skills.body")}
             stat={`${stats.skills} curated`}
-            visual={
-              <div className="absolute inset-0 flex items-center justify-center p-4 z-10">
-                <SkillsCloud count={stats.skills} />
-              </div>
-            }
+            videoSrc="/videos/04-skills.mp4"
           />
           <PillarCard
             index={2}
             title={t("multiuser.title")}
             body={t("multiuser.body")}
             stat="real-time sync"
-            visual={
-              <div className="absolute inset-0 flex items-center justify-center p-4 z-10">
-                <MultiUserSync />
-              </div>
-            }
+            videoSrc="/videos/05-multiuser.mp4"
           />
         </div>
       </div>
@@ -69,21 +55,25 @@ function PillarCard({
   title,
   body,
   stat,
-  visual,
+  videoSrc,
 }: {
   index: number;
   title: string;
   body: string;
   stat: string;
-  visual: React.ReactNode;
+  videoSrc: string;
 }) {
   return (
     <Reveal direction="up" delay={0.1 * index} as="article">
       <div className="group bg-[#0a0a0e] border border-white/[0.06] rounded-2xl min-h-[480px] flex flex-col overflow-hidden hover:border-white/[0.12] transition-colors duration-200">
+        {/* Video area */}
         <div className="relative h-64 border-b border-white/[0.06] overflow-hidden">
-          {visual}
+          <VideoBg src={videoSrc} opacity={0.75} className="z-0" />
+          {/* Subtle overlay vignette */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0e]/60 via-transparent to-transparent pointer-events-none z-10" aria-hidden />
         </div>
 
+        {/* Content */}
         <div className="relative p-10 md:p-12 flex-1 flex flex-col">
           <div className="flex items-baseline justify-between mb-4">
             <span className="font-mono text-xs text-subtle uppercase tracking-wider">

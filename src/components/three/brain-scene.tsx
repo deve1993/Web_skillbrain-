@@ -34,15 +34,17 @@ function BrainMesh({
   const overrideMaterial = useRef<THREE.MeshPhysicalMaterial | null>(null);
   if (!overrideMaterial.current) {
     overrideMaterial.current = new THREE.MeshPhysicalMaterial({
-      color: new THREE.Color(0x1a0a2e),
-      emissive: new THREE.Color(0x5b21b6),
-      emissiveIntensity: 0.8,
-      roughness: 0.3,
-      metalness: 0.1,
-      transmission: 0.15,
-      thickness: 0.5,
+      color: new THREE.Color(0x0d0420),
+      emissive: new THREE.Color(0x8b5cf6),
+      emissiveIntensity: 1.6,
+      roughness: 0.18,
+      metalness: 0.35,
+      transmission: 0.22,
+      thickness: 1.2,
       transparent: true,
-      opacity: 0.92,
+      opacity: 0.95,
+      iridescence: 0.4,
+      iridescenceIOR: 1.6,
     });
   }
 
@@ -80,10 +82,11 @@ function BrainMesh({
 function BrainLighting() {
   return (
     <>
-      <ambientLight intensity={0.25} />
-      <pointLight position={[-4, 5, 3]} intensity={8} color="#7c3aed" distance={15} />
-      <pointLight position={[4, -4, -3]} intensity={6} color="#06b6d4" distance={15} />
-      <directionalLight position={[0, 3, -6]} intensity={1.5} color="#ffffff" />
+      <ambientLight intensity={0.12} />
+      <pointLight position={[-5, 6, 3]} intensity={18} color="#8b5cf6" distance={20} />
+      <pointLight position={[5, -5, -3]} intensity={12} color="#06b6d4" distance={20} />
+      <pointLight position={[0, -6, 5]} intensity={6} color="#7c3aed" distance={15} />
+      <directionalLight position={[0, 4, -8]} intensity={2.5} color="#ffffff" />
     </>
   );
 }

@@ -35,7 +35,10 @@
 
 html,
 body {
-  background: var(--color-background);
+  background-color: var(--color-background);
+  /* Subtle dot grid — unified across all sections */
+  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
   color: var(--color-foreground);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;

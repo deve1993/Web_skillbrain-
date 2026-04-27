@@ -36,12 +36,12 @@ export function LazyBrainHero() {
     <div ref={ref} className="absolute inset-0">
       {shouldMount ? (
         <Canvas
-          camera={{ position: [0, 0, 4.5], fov: 45 }}
+          camera={{ position: [0, 0, 2.8], fov: 50 }}
           gl={{ antialias: true, alpha: true }}
           dpr={[1, 1.5]}
         >
           <BrainScene
-            scale={1.1}
+            scale={1.5}
             autoRotate={true}
             showPulses={true}
             showPostProcessing={true}
