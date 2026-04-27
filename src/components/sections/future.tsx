@@ -1,7 +1,10 @@
+"use client";
+
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Reveal } from "@/components/motion/reveal";
-import { AgentConstellation } from "@/components/motion/agent-constellation";
+import { LazyBrainAgentic } from "@/components/three/lazy-brain-agentic";
+import { AgentThreads } from "@/components/three/agentic-threads";
 
 export function Future() {
   const t = useTranslations("sections.future");
@@ -10,38 +13,52 @@ export function Future() {
   return (
     <section
       id="future"
-      className="relative py-40 md:py-56 border-t border-border/40 overflow-hidden bg-[#04040A]"
+      className="relative py-32 md:py-40 border-t border-white/[0.06] overflow-hidden bg-[#050509]"
     >
-      <div
-        className="absolute inset-0 bg-gradient-to-b from-background via-[#04040A] to-background"
-        aria-hidden
-      />
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-accent/5 blur-3xl float-slow"
-        aria-hidden
-      />
-
-      <AgentConstellation />
-
-      <div className="relative mx-auto max-w-4xl px-6 text-center">
+      <div className="relative mx-auto max-w-5xl px-6 text-center">
+        {/* Eyebrow */}
         <Reveal direction="up">
-          <p className="font-mono uppercase tracking-[0.3em] text-xs text-muted mb-10">
+          <p className="font-mono uppercase tracking-[0.3em] text-xs text-white/40 mb-10">
             {t("eyebrow")}
           </p>
         </Reveal>
 
+        {/* Headline */}
         <Reveal direction="up" delay={0.15} duration={1}>
-          <h2 className="font-display text-6xl sm:text-7xl md:text-8xl text-foreground">
+          <h2 className="font-display text-6xl sm:text-7xl md:text-8xl text-foreground mb-8">
             {t("title")}
           </h2>
         </Reveal>
 
-        <Reveal direction="up" delay={0.4}>
-          <p className="mt-12 text-xl text-muted font-serif italic leading-relaxed max-w-2xl mx-auto">
+        {/* Body */}
+        <Reveal direction="up" delay={0.3}>
+          <p className="text-xl text-muted leading-relaxed max-w-2xl mx-auto mb-16">
             {t("body")}
           </p>
         </Reveal>
 
+        {/* Visual block: brain top + threads below */}
+        <Reveal direction="up" delay={0.45}>
+          <div className="relative w-full">
+            {/* Brain scene — desktop */}
+            <div className="hidden md:block">
+              {/* Brain canvas */}
+              <div className="relative h-[220px] mb-8 mx-auto max-w-[280px]">
+                <LazyBrainAgentic />
+              </div>
+
+              {/* 3 thread columns */}
+              <AgentThreads />
+            </div>
+
+            {/* Mobile fallback: threads only, no brain */}
+            <div className="block md:hidden">
+              <AgentThreads />
+            </div>
+          </div>
+        </Reveal>
+
+        {/* CTA */}
         <Reveal direction="up" delay={0.6}>
           <Link
             href="/#call"
