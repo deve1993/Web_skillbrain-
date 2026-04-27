@@ -1,4 +1,3 @@
-import { useTranslations } from "next-intl";
 import { Reveal } from "@/components/motion/reveal";
 import { KnowledgeGraph } from "@/components/motion/knowledge-graph";
 import { SkillsCloud } from "@/components/motion/skills-cloud";
@@ -25,18 +24,17 @@ export async function Pillars() {
           </p>
         </Reveal>
 
-        <div className="mt-20 grid md:grid-cols-3 gap-px bg-border/40 rounded-2xl overflow-hidden">
+        <div className="mt-20 grid md:grid-cols-3 gap-6 md:gap-8">
           <PillarCard
             index={0}
             title={t("memory.title")}
             body={t("memory.body")}
             stat={`${stats.memories} active`}
             visual={
-              <div className="absolute inset-0 flex items-center justify-center p-4">
-                <KnowledgeGraph />
+              <div className="absolute inset-0 flex items-center justify-center p-4 z-10">
+                <KnowledgeGraph memoryCount={stats.memories} />
               </div>
             }
-            tone="accent"
           />
           <PillarCard
             index={1}
@@ -44,11 +42,10 @@ export async function Pillars() {
             body={t("skills.body")}
             stat={`${stats.skills} curated`}
             visual={
-              <div className="absolute inset-0 flex items-center justify-center p-4">
+              <div className="absolute inset-0 flex items-center justify-center p-4 z-10">
                 <SkillsCloud count={stats.skills} />
               </div>
             }
-            tone="cyan"
           />
           <PillarCard
             index={2}
@@ -56,11 +53,10 @@ export async function Pillars() {
             body={t("multiuser.body")}
             stat="real-time sync"
             visual={
-              <div className="absolute inset-0 flex items-center justify-center p-4">
+              <div className="absolute inset-0 flex items-center justify-center p-4 z-10">
                 <MultiUserSync />
               </div>
             }
-            tone="accent-soft"
           />
         </div>
       </div>
@@ -74,35 +70,21 @@ function PillarCard({
   body,
   stat,
   visual,
-  tone,
 }: {
   index: number;
   title: string;
   body: string;
   stat: string;
   visual: React.ReactNode;
-  tone: "accent" | "cyan" | "accent-soft";
 }) {
-  const toneClass =
-    tone === "accent"
-      ? "from-accent/15"
-      : tone === "cyan"
-        ? "from-cyan/15"
-        : "from-accent-soft/15";
-
   return (
     <Reveal direction="up" delay={0.1 * index} as="article">
-      <div className="relative group bg-surface min-h-[480px] flex flex-col overflow-hidden">
-        <div
-          className={`absolute inset-0 bg-gradient-to-br ${toneClass} via-transparent to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-700`}
-          aria-hidden
-        />
-
-        <div className="relative h-64 border-b border-border/40 overflow-hidden">
+      <div className="group bg-[#0a0a0e] border border-white/[0.06] rounded-2xl min-h-[480px] flex flex-col overflow-hidden hover:border-white/[0.12] transition-colors duration-200">
+        <div className="relative h-64 border-b border-white/[0.06] overflow-hidden">
           {visual}
         </div>
 
-        <div className="relative p-8 md:p-10 flex-1 flex flex-col">
+        <div className="relative p-10 md:p-12 flex-1 flex flex-col">
           <div className="flex items-baseline justify-between mb-4">
             <span className="font-mono text-xs text-subtle uppercase tracking-wider">
               0{index + 1}

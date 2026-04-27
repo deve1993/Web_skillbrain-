@@ -53,14 +53,20 @@ export function TeamWindows() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, delay: 0.1 * i, ease: [0.19, 1, 0.22, 1] }}
-          className="group relative aspect-video rounded-xl border border-border bg-surface overflow-hidden"
+          className={`group relative aspect-video rounded-xl border border-white/[0.08] overflow-hidden bg-[rgba(13,13,20,0.72)] backdrop-blur-md ${
+            i === 0
+              ? "shadow-[0_8px_40px_-12px_rgba(124,58,237,0.25)]"
+              : i === 1
+                ? "shadow-[0_8px_40px_-12px_rgba(6,182,212,0.20)]"
+                : "shadow-[0_8px_40px_-12px_rgba(159,122,234,0.18)]"
+          }`}
         >
           {/* IDE chrome */}
           <div className="flex items-center justify-between border-b border-border/60 px-3 py-1.5">
             <div className="flex items-center gap-1">
-              <span className="h-1.5 w-1.5 rounded-full bg-danger/50" />
-              <span className="h-1.5 w-1.5 rounded-full bg-accent-soft/50" />
-              <span className="h-1.5 w-1.5 rounded-full bg-cyan/50" />
+              <span className="h-2 w-2 rounded-full bg-danger/50 opacity-50 group-hover:opacity-100 transition-opacity" />
+              <span className="h-2 w-2 rounded-full bg-accent-soft/50 opacity-50 group-hover:opacity-100 transition-opacity" />
+              <span className="h-2 w-2 rounded-full bg-cyan/50 opacity-50 group-hover:opacity-100 transition-opacity" />
             </div>
             <span className="font-mono text-[9px] uppercase tracking-wider text-subtle">
               {w.ide}
