@@ -19,6 +19,11 @@ export function Hero() {
         aria-hidden
       />
 
+      {/* Brain 3D — full right half, no container clipping */}
+      <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-1/2 z-[2] pointer-events-none">
+        <LazyBrainHero />
+      </div>
+
       <div className="relative z-10 mx-auto max-w-6xl px-6 w-full pt-28 pb-16">
         <div className="grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
           {/* Left column: text + CTAs */}
@@ -70,15 +75,10 @@ export function Hero() {
             </Reveal>
           </div>
 
-          {/* Right column: brain 3D (desktop) / terminal fallback (mobile) */}
-          <div className="lg:block">
+          {/* Right column: spacer desktop / terminal fallback mobile */}
+          <div>
+            {/* Mobile: lightweight terminal fallback */}
             <Reveal direction="up" delay={0.45}>
-              {/* Desktop: R3F brain scene */}
-              <div className="hidden lg:block relative h-[480px]">
-                <LazyBrainHero />
-              </div>
-
-              {/* Mobile: lightweight terminal fallback */}
               <div className="lg:hidden h-[280px] rounded-xl border border-white/[0.06] bg-surface/80 backdrop-blur-sm p-4 overflow-hidden flex flex-col font-mono text-xs">
                 <div className="flex items-center gap-1.5 mb-4">
                   <span className="h-2 w-2 rounded-full bg-danger/60" />
