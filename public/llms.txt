@@ -1,0 +1,26 @@
+# SkillBrain
+
+> SkillBrain è una memoria persistente open source, MCP-native e IDE-agnostic per team che programmano con l'AI. Permette a Claude, Cursor, Copilot e qualsiasi AI coding tool di ricordare convenzioni, decisioni architetturali e pattern del progetto tra una sessione e l'altra.
+
+## Getting Started
+- [Home](https://skillbrain.fl1.it/it): Panoramica del prodotto
+- [Open Source](https://skillbrain.fl1.it/it#opensource): Repository GitHub e licenza MIT
+- [Come funziona](https://skillbrain.fl1.it/it#flow): Architettura MCP e integrazione con IDE
+- [Prenota una call](https://skillbrain.fl1.it/it#call): Accesso early e contatti
+
+## Core Concepts
+- **Memoria persistente**: SkillBrain salva in un grafo le convenzioni di codice, le decisioni architetturali e i bug fix del team. L'AI li riusa in ogni sessione senza doverli rispiegare.
+- **MCP-native**: Si integra come MCP server con Claude Code, Cursor, Cline, Windsurf e qualsiasi client compatibile con il Model Context Protocol.
+- **Skills condivise**: Knowledge base strutturata per dominio (Next.js, Stripe, Payload CMS, ecc.) condivisa tra tutti i membri del team.
+- **IDE-agnostic**: Non dipende da un singolo editor — funziona con VS Code, JetBrains, terminal e qualsiasi tool che supporti MCP.
+- **Open source (MIT)**: Core gratuito e pubblico su GitHub.
+
+## FAQ
+- Cos'è SkillBrain? Una memoria persistente MCP per team AI. L'AI non dimentica più le convenzioni del tuo progetto tra una sessione e l'altra.
+- Con quali AI funziona? Claude (Anthropic), Cursor, GitHub Copilot, Cline, Windsurf — qualsiasi tool che supporti il Model Context Protocol.
+- È gratuito? Sì, il core è open source con licenza MIT.
+- Come si installa? Via npm come MCP server, configurabile in pochi minuti in qualsiasi IDE compatibile.
+
+## Resources
+- [Privacy Policy](https://skillbrain.fl1.it/it/legal/privacy)
+- [Cookie Policy](https://skillbrain.fl1.it/it/legal/cookies)
