@@ -7,6 +7,7 @@ import Script from "next/script";
 import { routing } from "@/i18n/routing";
 import { LenisProvider } from "@/components/motion/lenis-provider";
 import { SkipLink } from "@/components/layout/skip-link";
+import { SchemaOrg } from "@/components/seo/schema-org";
 import "../globals.css";
 
 const geistSans = Geist({
@@ -102,6 +103,8 @@ export default async function LocaleLayout({
 
   setRequestLocale(locale);
 
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://skillbrain.fl1.it";
+
   return (
     <html
       lang={locale}
@@ -114,6 +117,7 @@ export default async function LocaleLayout({
           href="/models/human_brain_digital.glb"
           crossOrigin="anonymous"
         />
+        <SchemaOrg locale={locale} siteUrl={siteUrl} />
       </head>
       <body className="min-h-screen bg-background text-foreground">
         {/* Unified dot grid — fixed so it shows through all transparent section wrappers */}
