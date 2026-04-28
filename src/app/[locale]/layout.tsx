@@ -48,7 +48,10 @@ export async function generateMetadata({
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://skillbrain.fl1.it";
 
   return {
-    title,
+    title: {
+      default: title,
+      template: "%s | SkillBrain",
+    },
     description,
     metadataBase: new URL(siteUrl),
     alternates: {
@@ -57,6 +60,7 @@ export async function generateMetadata({
         it: "/it",
         en: "/en",
         cs: "/cs",
+        "x-default": "/it",
       },
     },
     openGraph: {
@@ -72,7 +76,17 @@ export async function generateMetadata({
       title,
       description,
     },
-    robots: { index: true, follow: true },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
   };
 }
 
