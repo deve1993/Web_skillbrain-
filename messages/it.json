@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "SkillBrain — Memoria persistente per team che programmano con l'AI",
-    "description": "Open source. MCP-native. IDE-agnostic. La tua AI non dimentica più nulla, e tutto il team lavora con le stesse convenzioni.",
+    "description": "Memoria persistente e skill condivise per team che programmano con Claude, Cursor e Copilot. MCP-native, IDE-agnostic e open source MIT — la tua AI non dimentica mai più le convenzioni del progetto.",
     "ogAlt": "SkillBrain — Persistent memory for AI coding teams"
   },
   "common": {
