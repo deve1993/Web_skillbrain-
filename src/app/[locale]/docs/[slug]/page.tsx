@@ -81,7 +81,7 @@ export default async function DocsPage({ params }: { params: Params }) {
       </article>
 
       {/* TOC */}
-      <aside className="hidden lg:block w-44 shrink-0 sticky top-16 self-start h-[calc(100vh-4rem)] overflow-y-auto py-10 pl-4 border-l border-white/[0.06]">
+      <aside className="hidden lg:block w-44 shrink-0 sticky top-24 self-start h-[calc(100vh-6rem)] overflow-y-auto py-10 pl-4 border-l border-white/[0.06]">
         <DocsToc items={toc} label={tocLabel} />
       </aside>
     </>

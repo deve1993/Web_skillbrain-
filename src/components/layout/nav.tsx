@@ -24,6 +24,7 @@ export function Nav() {
     { href: "/#flow", label: t("nav.flow") },
     { href: "/#future", label: t("nav.future") },
     { href: "/#opensource", label: t("nav.opensource") },
+    { href: "/docs", label: t("nav.docs") },
   ];
 
   return (
