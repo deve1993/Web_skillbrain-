@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
+import Script from "next/script";
 import { routing } from "@/i18n/routing";
 import { LenisProvider } from "@/components/motion/lenis-provider";
 import { SkipLink } from "@/components/layout/skip-link";
@@ -65,13 +66,11 @@ export async function generateMetadata({
       siteName: "SkillBrain",
       locale,
       type: "website",
-      images: [{ url: "/og.jpg", width: 1200, height: 630, alt: t("ogAlt") }],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: ["/og.jpg"],
     },
     robots: { index: true, follow: true },
   };
@@ -94,12 +93,37 @@ export default async function LocaleLayout({
       lang={locale}
       className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable}`}
     >
+      <head>
+        <link
+          rel="preload"
+          as="fetch"
+          href="/models/human_brain_digital.glb"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body className="min-h-screen bg-background text-foreground">
+        {/* Unified dot grid — fixed so it shows through all transparent section wrappers */}
+        <div
+          className="fixed inset-0 pointer-events-none"
+          style={{
+            backgroundImage: "radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px)",
+            backgroundSize: "28px 28px",
+            zIndex: 0,
+          }}
+          aria-hidden
+        />
         <NextIntlClientProvider>
           <SkipLink />
           <LenisProvider />
           {children}
         </NextIntlClientProvider>
+        {process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN && (
+          <Script
+            defer
+            data-domain={process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN}
+            src="https://plausible.io/js/script.js"
+          />
+        )}
       </body>
     </html>
   );
