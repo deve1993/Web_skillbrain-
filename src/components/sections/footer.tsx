@@ -65,10 +65,27 @@ export function Footer() {
       <div className="border-t border-border/40">
         <div className="mx-auto max-w-6xl px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-subtle uppercase tracking-wider">
           <span>
-            © {new Date().getFullYear()} Pixarts S.r.l. · {t("license")}
+            © {new Date().getFullYear()}{" "}
+            <a
+              href="https://pixarts.eu/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-foreground transition-colors"
+            >
+              Pixarts
+            </a>{" "}
+            · {t("license")}
           </span>
-          <span className="flex items-center gap-2">
-            {t("madeIn")} <span aria-hidden>🇮🇹</span>
+          <span>
+            {t("craftedBy")}{" "}
+            <a
+              href="https://www.linkedin.com/in/danieldevecchi/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-foreground transition-colors"
+            >
+              Daniel De Vecchi
+            </a>
           </span>
         </div>
       </div>
