@@ -9,7 +9,7 @@ const BrainScene = dynamic(
   { ssr: false, loading: () => null },
 );
 
-export function LazyBrainHero() {
+export function LazyBrainMini() {
   const ref = useRef<HTMLDivElement>(null);
   const [shouldMount, setShouldMount] = useState(false);
   const [loaded, setLoaded] = useState(false);
@@ -34,26 +34,26 @@ export function LazyBrainHero() {
   }, []);
 
   return (
-    <div ref={ref} className="absolute inset-0">
+    <div ref={ref} className="w-full h-full">
       {/* Pulsing orb — fades out when brain is ready */}
       <div
         className="absolute inset-0 flex items-center justify-center pointer-events-none transition-opacity duration-700"
         style={{ opacity: loaded ? 0 : 1 }}
         aria-hidden
       >
-        <div className="w-56 h-56 rounded-full bg-violet-600/25 blur-3xl animate-pulse" />
+        <div className="w-32 h-32 rounded-full bg-violet-600/25 blur-2xl animate-pulse" />
       </div>
       {shouldMount ? (
         <Canvas
-          camera={{ position: [0, 0, 4.2], fov: 45 }}
+          camera={{ position: [0, 0, 3.0], fov: 45 }}
           gl={{ antialias: true, alpha: true }}
-          dpr={[1, 1.5]}
+          dpr={[1, 2]}
         >
           <BrainScene
             scale={1.0}
             autoRotate={true}
-            showPulses={true}
-            showPostProcessing={true}
+            showPulses={false}
+            showPostProcessing={false}
             onLoaded={() => setLoaded(true)}
           />
         </Canvas>

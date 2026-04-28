@@ -1,21 +1,22 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { LazyBrainMini } from "@/components/three/lazy-brain-mini";
 
 const BEFORE_ITEMS = [
-  { text: "// context lost", color: "text-red-500/40" },
-  { text: "// session ended", color: "text-red-500/30" },
-  { text: "// memory cleared", color: "text-orange-400/30" },
-  { text: "// re-explaining...", color: "text-red-500/25" },
-  { text: "// 4h wasted", color: "text-orange-400/20" },
+  { text: "// context lost",      color: "text-red-500/60" },
+  { text: "// session ended",     color: "text-red-500/50" },
+  { text: "// memory cleared",    color: "text-orange-400/45" },
+  { text: "// re-explaining...",  color: "text-red-400/40" },
+  { text: "// 4h wasted",         color: "text-red-500/35" },
 ];
 
 const AFTER_ITEMS = [
-  { text: "✓ context restored", color: "text-emerald-400/80" },
-  { text: "✓ 247 memories active", color: "text-emerald-400/70" },
-  { text: "✓ session resumed", color: "text-violet-400/80" },
-  { text: "✓ memory persistent", color: "text-emerald-400/60" },
-  { text: "✓ instant onboarding", color: "text-cyan-400/70" },
+  { text: "✓ context restored",     color: "text-emerald-400" },
+  { text: "✓ 247 memories active",  color: "text-emerald-400/90" },
+  { text: "✓ session resumed",      color: "text-violet-300" },
+  { text: "✓ memory persistent",    color: "text-emerald-400/80" },
+  { text: "✓ instant onboarding",   color: "text-cyan-300/90" },
 ];
 
 export function Shift() {
@@ -24,123 +25,113 @@ export function Shift() {
   return (
     <section
       id="shift"
-      className="relative border-y border-white/[0.06] overflow-hidden"
+      className="relative py-28 md:py-36 overflow-hidden"
     >
-      {/* Label */}
-      <div className="absolute top-6 left-1/2 -translate-x-1/2 z-20">
-        <p className="font-mono uppercase tracking-[0.3em] text-[10px] text-white/30">
-          02 — LA SVOLTA
-        </p>
-      </div>
+      <div className="mx-auto max-w-6xl px-6">
 
-      <div className="grid grid-cols-2 min-h-[80vh]">
-
-        {/* ── PRIMA ── */}
-        <div className="relative flex flex-col items-center justify-center px-8 py-24 border-r border-white/[0.06] overflow-hidden">
-          {/* Scanline overlay */}
-          <div
-            className="absolute inset-0 pointer-events-none opacity-[0.04]"
-            style={{
-              backgroundImage: "repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(255,255,255,0.6) 3px,rgba(255,255,255,0.6) 4px)",
-            }}
-            aria-hidden
-          />
-          {/* Red noise vignette */}
-          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,rgba(239,68,68,0.04)_0%,transparent_70%)]" aria-hidden />
-
-          {/* Broken icon */}
-          <div className="mb-8 text-red-500/40 font-mono text-xs tracking-wider border border-red-500/20 px-3 py-1 rounded">
-            ERROR: no memory
-          </div>
-
-          {/* Floating error texts */}
-          <div className="space-y-3 mb-10 w-full max-w-xs">
-            {BEFORE_ITEMS.map((item, i) => (
-              <motion.p
-                key={item.text}
-                className={`font-mono text-xs ${item.color}`}
-                style={{ paddingLeft: `${(i % 3) * 12}px` }}
-                animate={prefersReducedMotion ? undefined : { opacity: [0.6, 1, 0.6] }}
-                transition={{ duration: 3 + i * 0.5, repeat: Infinity, delay: i * 0.6 }}
-              >
-                {item.text}
-              </motion.p>
-            ))}
-          </div>
-
-          {/* Headline */}
-          <div className="text-center">
-            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/20 mb-4">prima</p>
-            <p className="font-display text-3xl md:text-4xl text-white/30 leading-tight">
-              Ogni sessione,<br />ricomincia da zero.
-            </p>
-          </div>
+        {/* Section label */}
+        <div className="text-center mb-16">
+          <p className="font-mono uppercase tracking-[0.3em] text-[10px] text-white/30">
+            02 — LA SVOLTA
+          </p>
         </div>
 
-        {/* ── DOPO ── */}
-        <div className="relative flex flex-col items-center justify-center px-8 py-24 overflow-hidden">
-          {/* Cyan/violet glow bg */}
-          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,rgba(124,58,237,0.08)_0%,rgba(6,182,212,0.04)_50%,transparent_80%)]" aria-hidden />
+        {/* ── Two cards ── */}
+        <div className="grid md:grid-cols-2 gap-4 md:gap-6 items-stretch">
 
-          {/* Brain glow orb */}
-          <div className="relative mb-8">
-            <motion.div
-              className="w-28 h-28 rounded-full"
+          {/* PRIMA */}
+          <div className="relative rounded-2xl border border-red-500/10 bg-[#0a0608] p-8 md:p-10 overflow-hidden flex flex-col">
+            {/* Scanlines */}
+            <div
+              className="absolute inset-0 pointer-events-none opacity-[0.07]"
               style={{
-                background: "radial-gradient(circle, rgba(139,92,246,0.7) 0%, rgba(6,182,212,0.4) 50%, transparent 75%)",
-                boxShadow: "0 0 40px rgba(124,58,237,0.5), 0 0 80px rgba(6,182,212,0.25), 0 0 120px rgba(124,58,237,0.15)",
+                backgroundImage:
+                  "repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(255,80,80,0.5) 3px,rgba(255,80,80,0.5) 4px)",
               }}
-              animate={prefersReducedMotion ? undefined : {
-                scale: [1, 1.12, 1],
-                opacity: [0.8, 1, 0.8],
-              }}
-              transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+              aria-hidden
             />
-            {/* Orbiting ring */}
-            <motion.div
-              className="absolute inset-[-12px] rounded-full border border-violet-400/20"
-              animate={prefersReducedMotion ? undefined : { rotate: 360 }}
-              transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+            {/* Red radial */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{ background: "radial-gradient(ellipse 70% 50% at 50% 0%, rgba(239,68,68,0.09) 0%, transparent 70%)" }}
+              aria-hidden
             />
-            <motion.div
-              className="absolute inset-[-24px] rounded-full border border-cyan-400/10"
-              animate={prefersReducedMotion ? undefined : { rotate: -360 }}
-              transition={{ duration: 14, repeat: Infinity, ease: "linear" }}
-            />
+
+            {/* Top: label + badge */}
+            <div className="flex items-center justify-between mb-10">
+              <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-white/25">prima</p>
+              <span className="font-mono text-[10px] text-red-500/60 border border-red-500/20 px-2.5 py-1 rounded">
+                ERROR: no memory
+              </span>
+            </div>
+
+            {/* Error lines */}
+            <div className="space-y-3 flex-1">
+              {BEFORE_ITEMS.map((item, i) => (
+                <motion.p
+                  key={item.text}
+                  className={`font-mono text-sm ${item.color}`}
+                  style={{ paddingLeft: `${(i % 3) * 14}px` }}
+                  animate={prefersReducedMotion ? undefined : { opacity: [0.55, 1, 0.55] }}
+                  transition={{ duration: 3 + i * 0.5, repeat: Infinity, delay: i * 0.7 }}
+                >
+                  {item.text}
+                </motion.p>
+              ))}
+            </div>
+
+            {/* Headline */}
+            <div className="mt-10 pt-8 border-t border-red-500/10">
+              <p className="font-display text-5xl md:text-6xl text-foreground leading-[0.95]">
+                Ogni sessione,<br />ricomincia<br />da zero.
+              </p>
+            </div>
           </div>
 
-          {/* Status items */}
-          <div className="space-y-2 mb-10 w-full max-w-xs">
-            {AFTER_ITEMS.map((item, i) => (
-              <motion.p
-                key={item.text}
-                className={`font-mono text-xs ${item.color}`}
-                initial={prefersReducedMotion ? false : { opacity: 0, x: 12 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 + 0.2 }}
-              >
-                {item.text}
-              </motion.p>
-            ))}
+          {/* DOPO */}
+          <div className="relative rounded-2xl border border-violet-500/20 bg-[#08060f] p-8 md:p-10 overflow-hidden flex flex-col">
+            {/* Violet glow */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{ background: "radial-gradient(ellipse 80% 60% at 80% 0%, rgba(124,58,237,0.14) 0%, rgba(6,182,212,0.06) 55%, transparent 80%)" }}
+              aria-hidden
+            />
+
+            {/* Top: label + orb decoration */}
+            <div className="flex items-center justify-between mb-10">
+              <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-white/40">dopo</p>
+              {/* Mini brain */}
+              <div className="w-20 h-20 rounded-full overflow-hidden">
+                <LazyBrainMini />
+              </div>
+            </div>
+
+            {/* Status lines */}
+            <div className="space-y-3 flex-1">
+              {AFTER_ITEMS.map((item, i) => (
+                <motion.p
+                  key={item.text}
+                  className={`font-mono text-sm ${item.color}`}
+                  initial={prefersReducedMotion ? false : { opacity: 0, x: 10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.08 + 0.2 }}
+                >
+                  {item.text}
+                </motion.p>
+              ))}
+            </div>
+
+            {/* Headline */}
+            <div className="mt-10 pt-8 border-t border-violet-500/15">
+              <p className="font-display text-5xl md:text-6xl text-foreground leading-[0.95]">
+                La memoria persiste.<br />Il lavoro<br />continua.
+              </p>
+            </div>
           </div>
 
-          {/* Headline */}
-          <div className="text-center">
-            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/20 mb-4">dopo</p>
-            <p className="font-display text-3xl md:text-4xl text-foreground leading-tight">
-              La memoria persiste.<br />Il lavoro continua.
-            </p>
-          </div>
         </div>
       </div>
-
-      {/* Horizontal mid-line */}
-      <div
-        className="absolute left-0 right-0 top-[49%] h-px pointer-events-none z-10"
-        style={{ background: "linear-gradient(90deg, transparent, rgba(124,58,237,0.25) 30%, rgba(6,182,212,0.25) 70%, transparent)" }}
-        aria-hidden
-      />
     </section>
   );
 }

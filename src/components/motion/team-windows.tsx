@@ -53,7 +53,7 @@ export function TeamWindows() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, delay: 0.1 * i, ease: [0.19, 1, 0.22, 1] }}
-          className={`group relative aspect-video rounded-xl border border-white/[0.08] overflow-hidden bg-[rgba(13,13,20,0.72)] backdrop-blur-md ${
+          className={`group relative aspect-video rounded-xl border border-white/[0.08] overflow-hidden bg-[rgba(13,13,20,0.72)] backdrop-blur-md hover:border-accent/40 transition-colors duration-300 ${
             i === 0
               ? "shadow-[0_8px_40px_-12px_rgba(124,58,237,0.25)]"
               : i === 1

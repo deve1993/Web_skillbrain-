@@ -12,6 +12,7 @@ const BrainScene = dynamic(
 export function LazyBrainShift() {
   const ref = useRef<HTMLDivElement>(null);
   const [shouldMount, setShouldMount] = useState(false);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     if (!ref.current) return;
@@ -26,7 +27,7 @@ export function LazyBrainShift() {
           io.disconnect();
         }
       },
-      { rootMargin: "200px" },
+      { rootMargin: "600px" },
     );
     io.observe(ref.current);
     return () => io.disconnect();
@@ -34,6 +35,14 @@ export function LazyBrainShift() {
 
   return (
     <div ref={ref} className="absolute inset-0">
+      {/* Pulsing orb — fades out when brain is ready */}
+      <div
+        className="absolute inset-0 flex items-center justify-center pointer-events-none transition-opacity duration-700"
+        style={{ opacity: loaded ? 0 : 1 }}
+        aria-hidden
+      >
+        <div className="w-24 h-24 rounded-full bg-violet-600/25 blur-2xl animate-pulse" />
+      </div>
       {shouldMount ? (
         <Canvas
           camera={{ position: [0, 0, 4.5], fov: 45 }}
@@ -46,6 +55,7 @@ export function LazyBrainShift() {
             showPulses={true}
             showPostProcessing={false}
             pulseCount={4}
+            onLoaded={() => setLoaded(true)}
           />
         </Canvas>
       ) : null}

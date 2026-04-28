@@ -77,7 +77,7 @@ function AgentCard({ thread, poolIndex, delay }: { thread: typeof AGENTIC_THREAD
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.4 }}
       transition={{ duration: 0.6, delay, ease: [0.19, 1, 0.22, 1] }}
-      className={`bg-[rgba(10,10,18,0.8)] border ${color} rounded-xl p-4 md:p-5 backdrop-blur-sm`}
+      className={`bg-[rgba(10,10,18,0.8)] border ${color} rounded-xl p-4 md:p-5 backdrop-blur-sm hover:border-accent/40 transition-colors duration-300`}
     >
       {/* Card header */}
       <div className="flex items-center gap-2 mb-3 pb-2 border-b border-white/[0.06]">
@@ -121,7 +121,7 @@ export function Future() {
   return (
     <section
       id="future"
-      className="relative py-32 md:py-40 border-t border-white/[0.06] overflow-hidden"
+      className="relative py-32 md:py-40 overflow-hidden"
     >
       <div className="relative mx-auto max-w-6xl px-6">
         {/* Header text */}

@@ -1,13 +1,15 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 const N_AGENTS = 18;
 const RADIUS = 180;
 
 export function AgentConstellation() {
   const prefersReducedMotion = useReducedMotion();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => { setMounted(true); }, []);
 
   const agents = useMemo(() => {
     return Array.from({ length: N_AGENTS }, (_, i) => {
@@ -24,6 +26,8 @@ export function AgentConstellation() {
       };
     });
   }, []);
+
+  if (!mounted) return null;
 
   return (
     <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -55,34 +59,37 @@ export function AgentConstellation() {
 
         {/* Agents */}
         {agents.map((a) => (
-          <motion.div
+          <div
             key={a.i}
-            className="absolute rounded-full"
+            className="absolute"
             style={{
-              left: "50%",
-              top: "50%",
+              left: `calc(50% + ${a.x}px)`,
+              top: `calc(50% + ${a.y}px)`,
+              transform: "translate(-50%, -50%)",
               width: a.size * 2,
               height: a.size * 2,
-              backgroundColor:
-                a.i % 5 === 0 ? "var(--color-cyan)" : "var(--color-accent)",
-              x: a.x,
-              y: a.y,
-              translateX: "-50%",
-              translateY: "-50%",
-              boxShadow:
-                a.i % 5 === 0
-                  ? "var(--shadow-glow-cyan)"
-                  : "var(--shadow-glow)",
             }}
-            initial={prefersReducedMotion ? false : { scale: 0, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 0.85 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{
-              duration: 0.5,
-              delay: 0.3 + a.delay,
-              ease: [0.19, 1, 0.22, 1],
-            }}
-          />
+          >
+            <motion.div
+              className="w-full h-full rounded-full"
+              style={{
+                backgroundColor:
+                  a.i % 5 === 0 ? "var(--color-cyan)" : "var(--color-accent)",
+                boxShadow:
+                  a.i % 5 === 0
+                    ? "var(--shadow-glow-cyan)"
+                    : "var(--shadow-glow)",
+              }}
+              initial={prefersReducedMotion ? false : { scale: 0, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 0.85 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{
+                duration: 0.5,
+                delay: 0.3 + a.delay,
+                ease: [0.19, 1, 0.22, 1],
+              }}
+            />
+          </div>
         ))}
       </div>
     </div>

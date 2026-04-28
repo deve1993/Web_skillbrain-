@@ -23,7 +23,7 @@ export function ProofView({
   return (
     <section
       id="proof"
-      className="relative py-24 md:py-32 border-t border-white/[0.06]"
+      className="relative py-24 md:py-32"
     >
       <div className="mx-auto max-w-6xl px-6">
         <div className="max-w-3xl mb-16">

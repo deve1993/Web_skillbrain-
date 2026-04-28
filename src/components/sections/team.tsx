@@ -8,7 +8,7 @@ export function Team() {
   return (
     <section
       id="team"
-      className="relative py-32 md:py-40 border-t border-border/40"
+      className="relative py-32 md:py-40 overflow-hidden"
     >
       <div className="mx-auto max-w-6xl px-6 grid md:grid-cols-5 gap-12 items-center">
         <div className="md:col-span-2">

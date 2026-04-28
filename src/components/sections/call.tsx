@@ -21,7 +21,7 @@ export function Call() {
       : null;
 
   return (
-    <section id="call" className="relative py-32 md:py-40 border-t border-border/40">
+    <section id="call" className="relative py-32 md:py-40">
       <div className="mx-auto max-w-6xl px-6 grid lg:grid-cols-2 gap-16">
         <div className="lg:sticky lg:top-32 h-fit">
           <p className="font-mono uppercase tracking-[0.2em] text-xs text-muted mb-6">
@@ -95,7 +95,7 @@ export function Call() {
                     className="peer sr-only"
                     required
                   />
-                  <span className="block text-center px-3 py-2.5 rounded-lg border border-border text-sm text-muted cursor-pointer transition-colors peer-checked:border-accent peer-checked:bg-accent/10 peer-checked:text-foreground hover:border-accent/50">
+                  <span className="block text-center px-3 py-2.5 rounded-lg border border-border text-sm font-medium text-muted cursor-pointer transition-colors duration-300 peer-checked:border-accent peer-checked:bg-accent/10 peer-checked:text-foreground hover:border-accent/50 hover:text-foreground">
                     {f(`teamSizes.${size}`)}
                   </span>
                 </label>

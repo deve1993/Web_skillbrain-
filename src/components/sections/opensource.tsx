@@ -48,7 +48,7 @@ export function OpenSource() {
   return (
     <section
       id="opensource"
-      className="relative py-32 md:py-40 border-t border-border/40"
+      className="relative py-32 md:py-40"
     >
       <div className="mx-auto max-w-6xl px-6 grid lg:grid-cols-2 gap-16 items-start">
         <div className="lg:sticky lg:top-32">

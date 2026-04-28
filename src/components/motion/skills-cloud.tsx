@@ -1,78 +1,92 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { useMemo } from "react";
 
-type Cell = { x: number; y: number; size: number; delay: number; tone: 0 | 1 | 2 };
+type Tone = 0 | 1 | 2;
 
-const COLS = 18;
-const ROWS = 8;
-const PADDING_X = 10;
-const PADDING_Y = 12;
+type Tag = { name: string; tone: Tone; size: "sm" | "md" | "xs" };
+
+const SKILLS: Tag[] = [
+  { name: "nextjs", tone: 1, size: "md" },
+  { name: "tailwind", tone: 0, size: "sm" },
+  { name: "payments", tone: 2, size: "md" },
+  { name: "auth", tone: 0, size: "sm" },
+  { name: "database", tone: 1, size: "sm" },
+  { name: "seo", tone: 0, size: "xs" },
+  { name: "animations", tone: 2, size: "md" },
+  { name: "email", tone: 0, size: "xs" },
+  { name: "forms", tone: 0, size: "xs" },
+  { name: "i18n", tone: 1, size: "xs" },
+  { name: "coolify", tone: 0, size: "sm" },
+  { name: "docker", tone: 0, size: "sm" },
+  { name: "remotion", tone: 2, size: "md" },
+  { name: "n8n", tone: 1, size: "xs" },
+  { name: "ai-sdk", tone: 2, size: "md" },
+  { name: "trpc", tone: 0, size: "sm" },
+  { name: "realtime", tone: 1, size: "sm" },
+  { name: "graphql", tone: 0, size: "sm" },
+  { name: "postgres", tone: 0, size: "sm" },
+  { name: "redis", tone: 1, size: "xs" },
+  { name: "performance", tone: 0, size: "sm" },
+  { name: "security", tone: 2, size: "sm" },
+  { name: "monitoring", tone: 0, size: "sm" },
+  { name: "pwa", tone: 0, size: "xs" },
+  { name: "typescript", tone: 1, size: "md" },
+  { name: "shadcn", tone: 0, size: "sm" },
+  { name: "payload", tone: 2, size: "sm" },
+  { name: "ci-cd", tone: 0, size: "xs" },
+  { name: "devops", tone: 1, size: "sm" },
+  { name: "rag", tone: 2, size: "sm" },
+];
+
+const TONE_CLASS: Record<Tone, string> = {
+  0: "border-border/50 text-muted",
+  1: "border-cyan/35 text-cyan",
+  2: "border-accent/35 text-accent",
+};
+
+const SIZE_CLASS: Record<Tag["size"], string> = {
+  md: "text-[11px] px-3 py-1",
+  sm: "text-[10px] px-2.5 py-0.5",
+  xs: "text-[9px] px-2 py-0.5",
+};
 
 export function SkillsCloud({ count = 253 }: { count?: number }) {
   const prefersReducedMotion = useReducedMotion();
 
-  const cells = useMemo(() => {
-    const cellW = (400 - PADDING_X * 2) / COLS;
-    const cellH = (200 - PADDING_Y * 2) / ROWS;
-    const out: Cell[] = [];
-    let i = 0;
-    for (let r = 0; r < ROWS; r++) {
-      for (let c = 0; c < COLS; c++) {
-        if (i >= count) break;
-        const cx = PADDING_X + c * cellW + cellW / 2;
-        const cy = PADDING_Y + r * cellH + cellH / 2;
-        const size = 1.4 + ((c * 31 + r * 17) % 5) * 0.45;
-        const delay = ((c + r) % 14) * 0.04;
-        const tone = (((c + r * 3) % 7) === 0
-          ? 1
-          : ((c * 5 + r) % 11) === 0
-            ? 2
-            : 0) as 0 | 1 | 2;
-        out.push({ x: cx, y: cy, size, delay, tone });
-        i++;
-      }
-    }
-    return out;
-  }, [count]);
-
   return (
-    <svg
-      viewBox="0 0 400 200"
-      className="w-full h-full"
+    <div
+      className="w-full h-full flex flex-wrap content-center gap-1.5 p-3 overflow-hidden"
       role="img"
       aria-label={`${count} skills cloud`}
     >
-      <g>
-        {cells.map((cell, i) => (
-          <motion.circle
-            key={i}
-            cx={cell.x}
-            cy={cell.y}
-            r={cell.size}
-            fill={
-              cell.tone === 1
-                ? "var(--color-cyan)"
-                : cell.tone === 2
-                  ? "var(--color-accent)"
-                  : "var(--color-foreground)"
-            }
-            opacity={cell.tone === 0 ? 0.35 : 0.85}
-            initial={prefersReducedMotion ? false : { scale: 0, opacity: 0 }}
-            whileInView={{
-              scale: 1,
-              opacity: cell.tone === 0 ? 0.35 : 0.85,
-            }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{
-              duration: 0.4,
-              delay: cell.delay,
-              ease: [0.19, 1, 0.22, 1],
-            }}
-          />
-        ))}
-      </g>
-    </svg>
+      {SKILLS.map((skill, i) => (
+        <motion.span
+          key={skill.name}
+          className={`inline-flex items-center rounded-full border font-mono leading-none ${TONE_CLASS[skill.tone]} ${SIZE_CLASS[skill.size]}`}
+          initial={prefersReducedMotion ? false : { scale: 0, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{
+            duration: 0.35,
+            delay: i * 0.035,
+            ease: [0.19, 1, 0.22, 1],
+          }}
+          whileHover={{ scale: 1.08 }}
+        >
+          {skill.name}
+        </motion.span>
+      ))}
+      {/* Count badge */}
+      <motion.span
+        className="inline-flex items-center rounded-full border border-foreground/20 text-foreground/40 text-[9px] px-2 py-0.5 font-mono leading-none"
+        initial={prefersReducedMotion ? false : { scale: 0, opacity: 0 }}
+        whileInView={{ scale: 1, opacity: 1 }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 0.35, delay: SKILLS.length * 0.035 }}
+      >
+        +{count - SKILLS.length} more
+      </motion.span>
+    </div>
   );
 }
