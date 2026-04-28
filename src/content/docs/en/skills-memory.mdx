@@ -1,0 +1,60 @@
+export const metadata = {
+  title: "Skills & Memory",
+  description: "How to use shared skills and persistent memory in your SkillBrain workflow.",
+}
+
+export const toc = [
+  { id: "what-are-skills", title: "What are skills" },
+  { id: "loading-a-skill", title: "Loading a skill" },
+  { id: "persistent-memory", title: "Persistent memory" },
+  { id: "memory-types", title: "Memory types" },
+  { id: "recommended-workflow", title: "Recommended workflow" },
+]
+
+# Skills & Memory
+
+## What are skills
+
+Skills are structured domain guides (Next.js, Stripe, Payload CMS, etc.) shared across all team members. When your AI coding tool reads a skill, it gets the same guidelines everyone else uses.
+
+## Loading a skill
+
+```typescript
+// Find the right skill for your task
+skill_route({ task: "add stripe payments" })
+// → suggests: "payments"
+
+// Load the full content
+skill_read({ name: "payments" })
+// → returns the complete guide
+```
+
+## Persistent memory
+
+SkillBrain saves information worth remembering across sessions:
+
+```typescript
+memory_add({
+  type: "BugFix",
+  content: "Hero component needs `use client` otherwise framer-motion crashes in SSR",
+  project: "Web_SkillBrain",
+  tags: ["react", "framer-motion", "ssr"],
+})
+```
+
+## Memory types
+
+| Type | When to use |
+|------|-------------|
+| `BugFix` | Bug fixed after 2+ attempts |
+| `Pattern` | Non-obvious pattern discovered |
+| `Decision` | Architectural decision made |
+| `Preference` | Work style preference |
+| `AntiPattern` | What NOT to do and why |
+
+## Recommended workflow
+
+1. Start of session: `session_resume({ project: "project-name" })`
+2. Before implementing: `memory_search({ query: "what I'm about to do" })`
+3. After fixing a hard bug: `memory_add({ type: "BugFix", ... })`
+4. End of session: `session_end({ ... })`

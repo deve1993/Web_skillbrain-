@@ -1,0 +1,60 @@
+export const metadata = {
+  title: "Skills & Memory",
+  description: "Come usare le skill condivise e la memoria persistente di SkillBrain nel tuo workflow.",
+}
+
+export const toc = [
+  { id: "cosa-sono-le-skill", title: "Cosa sono le skill" },
+  { id: "caricare-una-skill", title: "Caricare una skill" },
+  { id: "memoria-persistente", title: "Memoria persistente" },
+  { id: "tipi-di-memoria", title: "Tipi di memoria" },
+  { id: "workflow-consigliato", title: "Workflow consigliato" },
+]
+
+# Skills & Memory
+
+## Cosa sono le skill
+
+Le skill sono guide strutturate per dominio (Next.js, Stripe, Payload CMS, ecc.) condivise tra tutti i membri del team. Quando il tuo AI coding tool legge una skill, ottiene le stesse linee guida che usano tutti gli altri.
+
+## Caricare una skill
+
+```typescript
+// Trova la skill giusta per il tuo task
+skill_route({ task: "add stripe payments" })
+// → suggerisce: "payments"
+
+// Carica il contenuto completo
+skill_read({ name: "payments" })
+// → restituisce la guida completa
+```
+
+## Memoria persistente
+
+SkillBrain salva nel grafo le informazioni che vale la pena ricordare tra sessioni:
+
+```typescript
+memory_add({
+  type: "BugFix",
+  content: "Il componente Hero deve usare `use client` altrimenti framer-motion crasha in SSR",
+  project: "Web_SkillBrain",
+  tags: ["react", "framer-motion", "ssr"],
+})
+```
+
+## Tipi di memoria
+
+| Tipo | Quando usarlo |
+|------|---------------|
+| `BugFix` | Bug risolto dopo 2+ tentativi |
+| `Pattern` | Pattern non ovvio scoperto nel codice |
+| `Decision` | Decisione architetturale presa |
+| `Preference` | Preferenza dello stile di lavoro |
+| `AntiPattern` | Cosa NON fare e perché |
+
+## Workflow consigliato
+
+1. All'inizio di ogni sessione: `session_resume({ project: "nome-progetto" })`
+2. Prima di implementare: `memory_search({ query: "cosa sto per fare" })`
+3. Quando risolvi un bug difficile: `memory_add({ type: "BugFix", ... })`
+4. A fine sessione: `session_end({ ... })`

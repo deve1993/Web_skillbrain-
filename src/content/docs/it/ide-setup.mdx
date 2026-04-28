@@ -1,0 +1,77 @@
+export const metadata = {
+  title: "IDE Setup",
+  description: "Configura SkillBrain con Claude Code, Cursor, Cline e Windsurf in pochi passi.",
+}
+
+export const toc = [
+  { id: "claude-code", title: "Claude Code" },
+  { id: "cursor", title: "Cursor" },
+  { id: "cline", title: "Cline" },
+  { id: "windsurf", title: "Windsurf" },
+]
+
+# IDE Setup
+
+SkillBrain si configura come MCP server in qualsiasi tool compatibile con il Model Context Protocol.
+
+## Claude Code
+
+Aggiungi SkillBrain al file `~/.claude/settings.json`:
+
+```json
+{
+  "mcpServers": {
+    "skillbrain": {
+      "command": "npx",
+      "args": ["skillbrain", "mcp"],
+      "env": {}
+    }
+  }
+}
+```
+
+Riavvia Claude Code. Verifica con `/mcp` — SkillBrain deve apparire nella lista.
+
+## Cursor
+
+Apri **Settings → Features → MCP** e aggiungi:
+
+```json
+{
+  "skillbrain": {
+    "command": "npx skillbrain mcp"
+  }
+}
+```
+
+Riavvia Cursor e verifica nella palette comandi: `MCP: List Tools`.
+
+## Cline
+
+Nel file di configurazione di Cline (`~/.cline/config.json`):
+
+```json
+{
+  "mcp": {
+    "servers": {
+      "skillbrain": {
+        "command": "npx",
+        "args": ["skillbrain", "mcp"]
+      }
+    }
+  }
+}
+```
+
+## Windsurf
+
+Apri **Cascade → Settings → MCP Servers** e aggiungi:
+
+```json
+{
+  "name": "skillbrain",
+  "command": "npx skillbrain mcp"
+}
+```
+
+Riavvia Windsurf. Il server sarà disponibile in tutte le sessioni Cascade.

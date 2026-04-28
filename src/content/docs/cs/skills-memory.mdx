@@ -1,0 +1,56 @@
+export const metadata = {
+  title: "Skills & Memory",
+  description: "Jak používat sdílené dovednosti a trvalou paměť ve vašem SkillBrain workflow.",
+}
+
+export const toc = [
+  { id: "co-jsou-dovednosti", title: "Co jsou dovednosti" },
+  { id: "nacteni-dovednosti", title: "Načtení dovednosti" },
+  { id: "trvala-pamet", title: "Trvalá paměť" },
+  { id: "typy-pameti", title: "Typy paměti" },
+  { id: "doporuceny-workflow", title: "Doporučený workflow" },
+]
+
+# Skills & Memory
+
+## Co jsou dovednosti
+
+Dovednosti jsou strukturované průvodce pro konkrétní domény (Next.js, Stripe, Payload CMS atd.) sdílené mezi všemi členy týmu. Když váš AI coding tool přečte dovednost, dostane stejné pokyny jako ostatní.
+
+## Načtení dovednosti
+
+```typescript
+skill_route({ task: "add stripe payments" })
+// → navrhuje: "payments"
+
+skill_read({ name: "payments" })
+// → vrátí kompletního průvodce
+```
+
+## Trvalá paměť
+
+```typescript
+memory_add({
+  type: "BugFix",
+  content: "Komponenta Hero potřebuje `use client`, jinak framer-motion padá při SSR",
+  project: "Web_SkillBrain",
+  tags: ["react", "framer-motion", "ssr"],
+})
+```
+
+## Typy paměti
+
+| Typ | Kdy použít |
+|-----|------------|
+| `BugFix` | Chyba opravená po 2+ pokusech |
+| `Pattern` | Neobvyklý vzor objevený v kódu |
+| `Decision` | Architektonické rozhodnutí |
+| `Preference` | Preference pracovního stylu |
+| `AntiPattern` | Co NEDĚLAT a proč |
+
+## Doporučený workflow
+
+1. Začátek sezení: `session_resume({ project: "název-projektu" })`
+2. Před implementací: `memory_search({ query: "co chystám udělat" })`
+3. Po opravě složité chyby: `memory_add({ type: "BugFix", ... })`
+4. Konec sezení: `session_end({ ... })`

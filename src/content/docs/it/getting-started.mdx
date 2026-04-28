@@ -1,0 +1,46 @@
+export const metadata = {
+  title: "Per iniziare",
+  description: "Configura SkillBrain in 5 minuti. Memoria persistente MCP-native per il tuo AI coding tool.",
+}
+
+export const toc = [
+  { id: "cos-e-skillbrain", title: "Cos'è SkillBrain" },
+  { id: "prerequisiti", title: "Prerequisiti" },
+  { id: "installazione-rapida", title: "Installazione rapida" },
+  { id: "prossimi-passi", title: "Prossimi passi" },
+]
+
+# Per iniziare
+
+SkillBrain è un MCP server che aggiunge memoria persistente al tuo AI coding tool. Una volta configurato, Claude, Cursor o Cline ricordano le convenzioni del progetto tra una sessione e l'altra.
+
+## Cos'è SkillBrain
+
+Ogni volta che avvii una sessione con il tuo AI coding tool, il contesto ricomincia da zero. SkillBrain risolve questo problema salvando in un grafo le decisioni architetturali, i pattern del progetto, i bug fix e le skill del team. L'AI le carica automaticamente all'avvio.
+
+## Prerequisiti
+
+- Node.js 18 o superiore
+- pnpm, npm o yarn
+- Un AI coding tool compatibile MCP: Claude Code, Cursor, Cline o Windsurf
+
+## Installazione rapida
+
+```bash
+npx skillbrain init
+```
+
+Il comando crea il file di configurazione MCP nella tua home directory e avvia il server locale.
+
+Per verificare che funzioni:
+
+```bash
+npx skillbrain status
+```
+
+Output atteso: `SkillBrain running on port 3001`.
+
+## Prossimi passi
+
+- [Installazione dettagliata](/it/docs/installation) — opzioni avanzate e configurazione manuale
+- [IDE Setup](/it/docs/ide-setup) — come configurare Claude Code, Cursor, Cline e Windsurf

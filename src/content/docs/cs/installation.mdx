@@ -1,0 +1,56 @@
+export const metadata = {
+  title: "Instalace",
+  description: "Kompletní instalace SkillBrain: npm, konfigurace MCP a spuštění serveru.",
+}
+
+export const toc = [
+  { id: "instalace-pres-npm", title: "Instalace přes npm" },
+  { id: "instalace-pres-npx", title: "Instalace přes npx" },
+  { id: "rucni-konfigurace", title: "Ruční konfigurace" },
+  { id: "overeni-instalace", title: "Ověření instalace" },
+]
+
+# Instalace
+
+## Instalace přes npm
+
+```bash
+npm install -g skillbrain
+skillbrain start
+```
+
+## Instalace přes npx
+
+Nevyžaduje globální instalaci:
+
+```bash
+npx skillbrain init
+npx skillbrain start
+```
+
+## Ruční konfigurace
+
+Konfigurační soubor se nachází na `~/.config/skillbrain/config.json`:
+
+```json
+{
+  "port": 3001,
+  "storage": "~/.skillbrain/data",
+  "logLevel": "info"
+}
+```
+
+## Ověření instalace
+
+```bash
+skillbrain status
+```
+
+Očekávaný výstup:
+
+```
+✓ SkillBrain running
+  Port: 3001
+  Storage: ~/.skillbrain/data
+  Version: 1.0.0
+```

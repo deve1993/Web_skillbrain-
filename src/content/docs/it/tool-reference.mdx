@@ -1,0 +1,130 @@
+export const metadata = {
+  title: "Tool Reference",
+  description: "Lista completa dei tool MCP esposti da SkillBrain: memory, skill, session, project.",
+}
+
+export const toc = [
+  { id: "memory", title: "Memory" },
+  { id: "skill", title: "Skill" },
+  { id: "session", title: "Session" },
+  { id: "project", title: "Project" },
+]
+
+# Tool Reference
+
+SkillBrain espone i seguenti tool MCP al tuo AI coding tool.
+
+## Memory
+
+### `memory_add`
+
+Aggiunge una memoria al grafo del progetto.
+
+```typescript
+memory_add({
+  type: "BugFix" | "Pattern" | "Decision" | "Preference" | "AntiPattern",
+  content: string,
+  project: string,
+  tags?: string[],
+})
+```
+
+### `memory_search`
+
+Cerca memorie per testo o tag.
+
+```typescript
+memory_search({
+  query: string,
+  project?: string,
+  limit?: number, // default 10
+})
+```
+
+### `memory_load`
+
+Carica memorie rilevanti per il contesto corrente.
+
+```typescript
+memory_load({ project: string })
+```
+
+## Skill
+
+### `skill_read`
+
+Carica il contenuto completo di una skill.
+
+```typescript
+skill_read({ name: string })
+```
+
+### `skill_route`
+
+Suggerisce le skill rilevanti per un task.
+
+```typescript
+skill_route({ task: string })
+```
+
+### `skill_list`
+
+Lista tutte le skill disponibili.
+
+```typescript
+skill_list()
+```
+
+## Session
+
+### `session_start`
+
+Avvia una nuova sessione di lavoro.
+
+```typescript
+session_start({ project: string })
+// Returns: { sessionId: string }
+```
+
+### `session_end`
+
+Termina la sessione e salva il sommario.
+
+```typescript
+session_end({
+  sessionId: string,
+  summary: string,
+  deliverables: string,
+  workType: "feature" | "fix" | "setup" | "deploy" | "refactor" | "design" | "docs",
+  nextSteps: string,
+  status: "completed" | "paused" | "blocked",
+  filesChanged?: string[],
+  commits?: string[],
+})
+```
+
+### `session_resume`
+
+Recupera il contesto dell'ultima sessione.
+
+```typescript
+session_resume({ project: string })
+```
+
+## Project
+
+### `project_list`
+
+Lista tutti i progetti registrati.
+
+```typescript
+project_list()
+```
+
+### `project_get`
+
+Ottieni i dettagli di un progetto.
+
+```typescript
+project_get({ project: string })
+```

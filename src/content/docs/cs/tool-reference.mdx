@@ -1,0 +1,107 @@
+export const metadata = {
+  title: "Tool Reference",
+  description: "Kompletní přehled MCP nástrojů SkillBrain: memory, skill, session, project.",
+}
+
+export const toc = [
+  { id: "memory", title: "Memory" },
+  { id: "skill", title: "Skill" },
+  { id: "session", title: "Session" },
+  { id: "project", title: "Project" },
+]
+
+# Tool Reference
+
+SkillBrain zpřístupňuje vašemu AI coding toolu následující MCP nástroje.
+
+## Memory
+
+### `memory_add`
+
+Přidá paměť do grafu projektu.
+
+```typescript
+memory_add({
+  type: "BugFix" | "Pattern" | "Decision" | "Preference" | "AntiPattern",
+  content: string,
+  project: string,
+  tags?: string[],
+})
+```
+
+### `memory_search`
+
+Vyhledá paměti podle textu nebo tagů.
+
+```typescript
+memory_search({ query: string, project?: string, limit?: number })
+```
+
+### `memory_load`
+
+Načte relevantní paměti pro aktuální kontext.
+
+```typescript
+memory_load({ project: string })
+```
+
+## Skill
+
+### `skill_read`
+
+Načte celý obsah skill.
+
+```typescript
+skill_read({ name: string })
+```
+
+### `skill_route`
+
+Doporučí relevantní skill pro daný úkol.
+
+```typescript
+skill_route({ task: string })
+```
+
+## Session
+
+### `session_start`
+
+Zahájí nové pracovní sezení.
+
+```typescript
+session_start({ project: string })
+```
+
+### `session_end`
+
+Ukončí sezení a uloží souhrn.
+
+```typescript
+session_end({
+  sessionId: string,
+  summary: string,
+  deliverables: string,
+  workType: "feature" | "fix" | "setup" | "deploy" | "refactor" | "design" | "docs",
+  nextSteps: string,
+  status: "completed" | "paused" | "blocked",
+})
+```
+
+### `session_resume`
+
+Načte kontext z posledního sezení.
+
+```typescript
+session_resume({ project: string })
+```
+
+## Project
+
+### `project_list`
+
+Vypíše všechny registrované projekty.
+
+```typescript
+project_list()
+```

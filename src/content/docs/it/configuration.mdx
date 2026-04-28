@@ -1,0 +1,61 @@
+export const metadata = {
+  title: "Configurazione",
+  description: "Variabili d'ambiente, opzioni avanzate e configurazione del server SkillBrain.",
+}
+
+export const toc = [
+  { id: "variabili-dambiente", title: "Variabili d'ambiente" },
+  { id: "file-di-configurazione", title: "File di configurazione" },
+  { id: "opzioni-avanzate", title: "Opzioni avanzate" },
+]
+
+# Configurazione
+
+## Variabili d'ambiente
+
+| Variabile | Default | Descrizione |
+|-----------|---------|-------------|
+| `SKILLBRAIN_PORT` | `3001` | Porta del server MCP |
+| `SKILLBRAIN_STORAGE` | `~/.skillbrain/data` | Percorso database |
+| `SKILLBRAIN_LOG_LEVEL` | `info` | Livello log |
+| `SKILLBRAIN_SECRET` | — | Token autenticazione (opzionale) |
+
+## File di configurazione
+
+`~/.config/skillbrain/config.json`:
+
+```json
+{
+  "port": 3001,
+  "storage": "~/.skillbrain/data",
+  "logLevel": "info",
+  "secret": "",
+  "autoStart": true
+}
+```
+
+## Opzioni avanzate
+
+### Avvio automatico (macOS/Linux)
+
+```bash
+skillbrain install-service
+```
+
+Installa un LaunchAgent (macOS) o un systemd unit (Linux) che avvia SkillBrain automaticamente al login.
+
+### Storage personalizzato
+
+```bash
+skillbrain start --storage /path/to/custom/storage
+```
+
+Utile per sincronizzare il grafo via cloud (Dropbox, iCloud, Google Drive).
+
+### Reset completo
+
+```bash
+skillbrain reset --confirm
+```
+
+> **Attenzione:** elimina tutte le memorie e le skill dal grafo locale. Non recuperabile.

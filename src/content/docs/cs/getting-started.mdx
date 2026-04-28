@@ -1,0 +1,44 @@
+export const metadata = {
+  title: "Začínáme",
+  description: "Nastavte SkillBrain za 5 minut. MCP-nativní trvalá paměť pro váš AI coding tool.",
+}
+
+export const toc = [
+  { id: "co-je-skillbrain", title: "Co je SkillBrain" },
+  { id: "pozadavky", title: "Požadavky" },
+  { id: "rychly-start", title: "Rychlý start" },
+  { id: "dalsi-kroky", title: "Další kroky" },
+]
+
+# Začínáme
+
+SkillBrain je MCP server, který přidává trvalou paměť vašemu AI coding toolu. Po nastavení si Claude, Cursor nebo Cline pamatují konvence projektu mezi sezeními.
+
+## Co je SkillBrain
+
+Pokaždé, když spustíte sezení s AI coding toolem, kontext začíná od nuly. SkillBrain to řeší ukládáním architektonických rozhodnutí, projektových vzorů, oprav chyb a dovedností týmu do grafu. AI je načítá automaticky při spuštění.
+
+## Požadavky
+
+- Node.js 18 nebo vyšší
+- pnpm, npm nebo yarn
+- AI coding tool kompatibilní s MCP: Claude Code, Cursor, Cline nebo Windsurf
+
+## Rychlý start
+
+```bash
+npx skillbrain init
+```
+
+Pro ověření funkčnosti:
+
+```bash
+npx skillbrain status
+```
+
+Očekávaný výstup: `SkillBrain running on port 3001`.
+
+## Další kroky
+
+- [Podrobná instalace](/cs/docs/installation) — pokročilé možnosti a ruční konfigurace
+- [Nastavení IDE](/cs/docs/ide-setup) — konfigurace Claude Code, Cursor, Cline a Windsurf

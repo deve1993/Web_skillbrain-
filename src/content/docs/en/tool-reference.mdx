@@ -1,0 +1,130 @@
+export const metadata = {
+  title: "Tool Reference",
+  description: "Full reference of MCP tools exposed by SkillBrain: memory, skill, session, project.",
+}
+
+export const toc = [
+  { id: "memory", title: "Memory" },
+  { id: "skill", title: "Skill" },
+  { id: "session", title: "Session" },
+  { id: "project", title: "Project" },
+]
+
+# Tool Reference
+
+SkillBrain exposes the following MCP tools to your AI coding tool.
+
+## Memory
+
+### `memory_add`
+
+Add a memory to the project graph.
+
+```typescript
+memory_add({
+  type: "BugFix" | "Pattern" | "Decision" | "Preference" | "AntiPattern",
+  content: string,
+  project: string,
+  tags?: string[],
+})
+```
+
+### `memory_search`
+
+Search memories by text or tags.
+
+```typescript
+memory_search({
+  query: string,
+  project?: string,
+  limit?: number, // default 10
+})
+```
+
+### `memory_load`
+
+Load relevant memories for the current context.
+
+```typescript
+memory_load({ project: string })
+```
+
+## Skill
+
+### `skill_read`
+
+Load the full content of a skill.
+
+```typescript
+skill_read({ name: string })
+```
+
+### `skill_route`
+
+Get skill recommendations for a task.
+
+```typescript
+skill_route({ task: string })
+```
+
+### `skill_list`
+
+List all available skills.
+
+```typescript
+skill_list()
+```
+
+## Session
+
+### `session_start`
+
+Start a new work session.
+
+```typescript
+session_start({ project: string })
+// Returns: { sessionId: string }
+```
+
+### `session_end`
+
+End the session and save summary.
+
+```typescript
+session_end({
+  sessionId: string,
+  summary: string,
+  deliverables: string,
+  workType: "feature" | "fix" | "setup" | "deploy" | "refactor" | "design" | "docs",
+  nextSteps: string,
+  status: "completed" | "paused" | "blocked",
+  filesChanged?: string[],
+  commits?: string[],
+})
+```
+
+### `session_resume`
+
+Retrieve context from the last session.
+
+```typescript
+session_resume({ project: string })
+```
+
+## Project
+
+### `project_list`
+
+List all registered projects.
+
+```typescript
+project_list()
+```
+
+### `project_get`
+
+Get details for a project.
+
+```typescript
+project_get({ project: string })
+```

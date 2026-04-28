@@ -1,0 +1,61 @@
+export const metadata = {
+  title: "Configuration",
+  description: "Environment variables, advanced options and SkillBrain server configuration.",
+}
+
+export const toc = [
+  { id: "environment-variables", title: "Environment variables" },
+  { id: "config-file", title: "Config file" },
+  { id: "advanced-options", title: "Advanced options" },
+]
+
+# Configuration
+
+## Environment variables
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `SKILLBRAIN_PORT` | `3001` | MCP server port |
+| `SKILLBRAIN_STORAGE` | `~/.skillbrain/data` | Database path |
+| `SKILLBRAIN_LOG_LEVEL` | `info` | Log level |
+| `SKILLBRAIN_SECRET` | — | Auth token (optional) |
+
+## Config file
+
+`~/.config/skillbrain/config.json`:
+
+```json
+{
+  "port": 3001,
+  "storage": "~/.skillbrain/data",
+  "logLevel": "info",
+  "secret": "",
+  "autoStart": true
+}
+```
+
+## Advanced options
+
+### Auto-start (macOS/Linux)
+
+```bash
+skillbrain install-service
+```
+
+Installs a LaunchAgent (macOS) or systemd unit (Linux) that starts SkillBrain automatically on login.
+
+### Custom storage
+
+```bash
+skillbrain start --storage /path/to/custom/storage
+```
+
+Useful for syncing the graph via cloud storage (Dropbox, iCloud, Google Drive).
+
+### Full reset
+
+```bash
+skillbrain reset --confirm
+```
+
+> **Warning:** deletes all memories and skills from the local graph. Not recoverable.

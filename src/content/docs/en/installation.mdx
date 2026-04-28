@@ -1,0 +1,62 @@
+export const metadata = {
+  title: "Installation",
+  description: "Full SkillBrain installation: npm, MCP configuration and server startup.",
+}
+
+export const toc = [
+  { id: "install-via-npm", title: "Install via npm" },
+  { id: "install-via-npx", title: "Install via npx" },
+  { id: "manual-configuration", title: "Manual configuration" },
+  { id: "verify-installation", title: "Verify installation" },
+]
+
+# Installation
+
+## Install via npm
+
+```bash
+npm install -g skillbrain
+skillbrain start
+```
+
+## Install via npx
+
+No global install required:
+
+```bash
+npx skillbrain init
+npx skillbrain start
+```
+
+## Manual configuration
+
+Config file at `~/.config/skillbrain/config.json`:
+
+```json
+{
+  "port": 3001,
+  "storage": "~/.skillbrain/data",
+  "logLevel": "info"
+}
+```
+
+| Key | Default | Description |
+|-----|---------|-------------|
+| `port` | `3001` | Local MCP server port |
+| `storage` | `~/.skillbrain/data` | Graph database path |
+| `logLevel` | `info` | Log level: `debug`, `info`, `warn`, `error` |
+
+## Verify installation
+
+```bash
+skillbrain status
+```
+
+Expected output:
+
+```
+✓ SkillBrain running
+  Port: 3001
+  Storage: ~/.skillbrain/data
+  Version: 1.0.0
+```

@@ -1,0 +1,57 @@
+export const metadata = {
+  title: "Konfigurace",
+  description: "Proměnné prostředí, pokročilé možnosti a konfigurace serveru SkillBrain.",
+}
+
+export const toc = [
+  { id: "promenne-prostredi", title: "Proměnné prostředí" },
+  { id: "konfigurační-soubor", title: "Konfigurační soubor" },
+  { id: "pokrocile-moznosti", title: "Pokročilé možnosti" },
+]
+
+# Konfigurace
+
+## Proměnné prostředí
+
+| Proměnná | Výchozí | Popis |
+|----------|---------|-------|
+| `SKILLBRAIN_PORT` | `3001` | Port MCP serveru |
+| `SKILLBRAIN_STORAGE` | `~/.skillbrain/data` | Cesta k databázi |
+| `SKILLBRAIN_LOG_LEVEL` | `info` | Úroveň logování |
+| `SKILLBRAIN_SECRET` | — | Autentizační token (volitelné) |
+
+## Konfigurační soubor
+
+`~/.config/skillbrain/config.json`:
+
+```json
+{
+  "port": 3001,
+  "storage": "~/.skillbrain/data",
+  "logLevel": "info",
+  "secret": "",
+  "autoStart": true
+}
+```
+
+## Pokročilé možnosti
+
+### Automatické spuštění (macOS/Linux)
+
+```bash
+skillbrain install-service
+```
+
+### Vlastní úložiště
+
+```bash
+skillbrain start --storage /cesta/k/ulozisti
+```
+
+### Úplný reset
+
+```bash
+skillbrain reset --confirm
+```
+
+> **Upozornění:** smaže veškeré paměti a dovednosti z lokálního grafu. Nevratné.
